@@ -1,0 +1,202 @@
+\documentclass[letterpaper, 12pt]{article}
+
+\usepackage{preamble}
+
+\begin{document}
+\pagestyle{fancy}
+\lhead{MAT1002, Problems}
+
+\section{Ivrii Problems}
+\begin{enumerate}
+    \item
+    Show the identities 
+    \begin{enumerate}
+        \item \[\sum_{n = -\infty}^\infty \frac{(-1)^n}{(z-n)^2} = \frac{\pi^2}{(\sin{\pi z})(\tan{\pi z})}\]
+        \item \[\frac{1}{z} + \sum_{n=1}^\infty (-1)^n \frac{2z}{z^2 - n^2} = \frac{\pi}{\sin{\pi z}}\]
+        \item \[\sum_{n=-\infty}^\infty \frac{1}{(z+n)^2 + a^2} = \frac{\pi}{a}\cdot \frac{\sinh{2\pi a}}{\cosh{2 \pi a} - \cos{2 \pi z}}.\]
+    \end{enumerate}
+
+    \begin{solution}
+        First, note that each of the series in question are absolutely convergent (at least pointwise) by comparision with the series \(\sum \frac{1}{n^2}\) wherever the terms in the series do not have a singularity. Thus we may rearrange these series and still be certain that they converge pointwise away from singularities of their terms.
+        \begin{enumerate}
+            \item Separating even and odd terms we get,
+            \begin{align*}
+                \sum_{n=-\infty}^\infty \frac{(-1)^n}{(z-n)^2} &= \sum_{k=-\infty}^\infty \frac{1}{(z-2k)^2} - \sum_{k=-\infty}^\infty \frac{1}{(z-2k+1)^2} \\
+                &= \frac{1}{4}\left( \frac{\pi^2}{\sin^2 \frac{\pi z}{2}} - \frac{\pi^2}{\sin^2 \frac{\pi (z-1)}{2}}\right) \\
+                &=\frac{\pi^2 (\cos^2 \frac{\pi z}{2} - \sin^2 \frac{\pi z}{2})}{4 \sin^2 \frac{\pi z}{2} \cos^2 \frac{\pi z}{2} }\\
+                &= \frac{\pi^2 \cos{\pi z}}{\sin^2 \pi z}
+            \end{align*}
+        \end{enumerate}
+    
+    \end{solution}
+
+    \item
+    Prove the identity by taking the logarithmic derivative of both sides
+    \[ \pi x \prod_{n=1}^\infty \left(1 + \frac{x^2}{n^2}\right) = \sinh{\pi x}.\]
+
+    \item
+        Let \(\mathcal{F}\) be the family of holomorphic functions in the unit disk satisfying \(|f^{(n)} \leq n! \) for all \(n \geq 0\). Show that \(\mathcal{F}\) is a normal family.
+
+    \item
+    Suppose \(f\) is an entire function. Show that \(f\) has an \(n-th\) root if and only if all zeros of \(f\) have multiplicity divisible by \(n\).
+    
+    \item
+    Suppose \(f(z)\) is a holomorphic function defined on the unit disk with \(|f(z)| \leq M\). Let the zeros of \(f\) be \(a_1, a_2, \dots, a_n\) counted with their multiplicities. Show that 
+    \[ |f(z)| \leq M \left| \prod_{k=1}^n \frac{a_k - z}{1 - \overline{a_k}z}\right|.\]
+    In particular, \(|f(0)| \leq M \prod_{k=1}^n |a_k|\) and if \(f(0)=0\) then \(|f(z)| \leq M|z|\).
+
+    \item
+    (Blashke Product) Suppose \(f(z)\) is a holomorphic function defined on the unit disk with a zero at \(0\) of order \(s\) and the other zeros \(\{a_k\}\) satisfying \(\sum_k(1-|a_k|) < \infty\) (or equivalently \(\sum_k \log|a_k| > -\infty\)). It then admits a nice factoriztion \(f = BG\) where \(B\) is a product of 
+    \[ B(z) = z^s \prod_{k=1}^\infty \frac{|a_k|}{a_k} \cdot \frac{a_k - z}{1- \overline{a_k}z}\]
+    and \(G(z)\) is a holomorphic function without zeros. Show that \(B(z)\) is holomorphic.
+
+    \item
+    Show that a bounded holomorphic function admits a Blashke product, ie that the sum \(\sum_k \log|a_k|\) converges (Hint: use the first corollary of Problem 5).
+
+    \item
+    (Jensen's formula) Suppose \(f(z)\) is a holomorphic function in the unit disk without zeros. As \(\log |f(z)|\) is harmonic, we have \(\log|f(0)| = \frac{1}{2\pi} \int_0^{2\pi} \log|f(re^{i \theta})| d\theta \) for \(0 < r < 1\). But what if \(f(z)\) has zeros in the unit disk? Suppose that \(f(0) \neq 0\) and denote its zeros by \(\{a_k\}\). In this case,
+        \[ \log|f(0)| = \frac{1}{2\pi} \int_0^{2\pi} \log|f(r e^{i\theta})| d \theta - \sum_{|a_k| < r} \log(\frac{r}{|a_k|}).\]
+    Here \(\log|f(0)|\) is not equal to, but is actually less than the mean value. Such functions are called subharmonic. Prove the above formula (Hint: first consider \(r\) for which no \(\{a_k\}\) lie on \(|z| = r\), also show that RHS is continuous).
+
+    \item
+    (Canonical Product) Look back at the proof of Weierstrass' theorem and observe the following: Suppose \(f(z)\) is an entire function with zeros \(\{a_k\}\) satisfying \(\sum_k \frac{1}{|a_k|^{m+1}} \leq \infty\) for some integer \(m\). Then it is possible to choose all \(m_k = m\).
+
+    \item
+    Prove that 
+    \[\frac{\sin{\pi z}}{\pi z} = \prod_{n=1}^\infty \left(1 - \frac{z^2}{n^2}\right).\]
+    Hint: The Weierstrass theorem implies that 
+    \[ \sin{\pi z} = z e^{g(z)} \prod_{n \neq 0} \left(1 - \frac{z}{n}\right) e^{z/n}.\]
+    To find \(g(z)\), take the logarithmic derivative and use Example 2 from Section 1.2.
+
+    \item
+    (Wedderburn's lemma) Suppose \(f\) and \(g\) are entire functions without common zeros. Show that there exists entire functions \(a\), \(b\) such that \(a f + b g = 1\).
+
+    Find the residues at the poles of the \(\Gamma\) function (Hint: use the functional equation).
+
+    \item
+    (Bohr-Mollerup theorem) Suppose \(f: \R^+ \to \R^+\) is a logarithmically convex function satisfying \(f(x+1) = f(x)\) and \(f(1) = 1\). Then necessarily, \(f(x) = \Gamma(x)\) for all \(x > 0\).
+    Hint: Show that for all natural \(n \geq 2\) and positive \(x\)
+    \[(n-1)^x(n-1)! \leq f(x+ n) \leq n^x(n-1)!\]
+    and
+    \[\frac{n^x n!}{x(x+1) \cdots (x+n)} \leq f(x) \leq \frac{n^x n!}{x(x+1) \cdots (x+n)} \cdot \frac{x+n}{n}.\]
+    
+    \item
+    Show that the automorphisms of the upper half-plane which preserve \(i\) are given by 
+    \[w(z) = \frac{z+ \tan{\theta/2}}{1 - z \tan{\theta/2}}.\]
+    Write the formula for \(\theta = \pi\).
+
+    \item
+    Find the automorphism group of \(\C \setminus \{0\}\).
+    
+    \item
+    Show that two annuli are biholomorphic if and only if the ration of their radii are the same (complete the proofs below).
+    \begin{enumerate}
+        \item Use the Previous problem.
+        \item Use the uniqueness of solution to the Dirichlet problem: 
+    \end{enumerate}
+
+    \item
+    Show that two tori \(\C / \Gamma_1\) (with \(\Gamma_1\) generated by \(e_1, e_2\)) and \(\C/\Gamma_2\) (with \(\Gamma_2\) generated by \(f_1, f_2\)) are biholomorphic if and only if there is a fractional linear transformation with integer coefficients and determinant \(1\) which takes \((e_1, e_2)\) to \((f_1, f_2)\).
+    
+    \item
+    (Schwarz-Christoffel formula) Show that the mapping \(F: \mathbb{H}^+ \to \Omega\) (where \(\Omega\) is a polygon) given by the formula
+    \[ F(w) = C \int_0^w \prod_{k=1}^{n-1} (w - w_k)^{-\beta_k} dw + C\]
+        is conformal for some distinct real numers \(w_k\) and \(\sum \beta_k = 2\).
+        
+    \item
+    Show that \(F(w) = \int_0^w (1-w^n)^{-2/n} dw\) maps the unit disk onto the interior of a regular polygon with \(n\) sides.
+    
+    \item
+    Find the image of the unit disk under the mapping \(F(z) = \frac{1}{z} \prod_{k=1}^n (z-a_k)^{\lambda_k} \) where \(\lambda_k\) are positive with \(\sum_{k=1}^n \lambda_k = 2\).
+
+    \item
+    Prove the addition theorem:
+    \[\p(z_1+z_2) = - \p(z_1) - \p(z_2) + \frac{1}{4} \left( \frac{\p'(z_1) - \p'(z_2)}{\p(z_1) - \p(z_2)} \right)^2\]
+        
+    \item
+    Another form of the addition theorem: if \(u + v + w = 0\) in \(\C/\Gamma\) then
+    \[
+    \begin{vmatrix}
+    1 & 1 & 1 \\
+    \p(u) & \p(v) & \p(w) \\
+    \p'(u) & \p'(v) & \p'(w)
+    \end{vmatrix}
+    = 0
+    \]
+
+    \item
+    Suppose that \(f(z)\) is an even doubly periodic function (let the group of periods be \(\Gamma\)). There exists points \(a_1, a_2, \dots, a_n; b_1, b_2, \dots, b_n \in \C/\Gamma\) such that 
+    \[ f(z) = c \prod_{k=1}^n \frac{\p(z) - \p(a_k)}{\p(z) - \p(b_k)}\]
+            
+    \item
+    Show that a doubly periodic function is a rational function of the \(\p\) and \(\p'\) (Hint: use the previous problem).
+
+    \item
+    Show that while the function \(f(z) = \sum_n z^{2^n}\) is holomorphic in the unit disk, it does not extend holomorphically to any larger open set (Hint: \(f(z^2) = f(z) - z)\).
+
+    \item
+    Find the radius of convergence of \(f(z) = \sum_{k\geq 1} \frac{z^{2k}}{k+1}\). Find a maximal domain of existence (a maximal open set in \(\C\) to which \(f(z)\) may be analytically continued).
+
+    \item
+    The set of solutions \((z,w)\) of \(w^2 - 2wz + 1 = 0\) can be completed to a compact Riemann surface over \(\C P^1\). Find the residues of the differential form \(\frac{dz}{\sqrt{z^2-1}}\) points at infinity.
+    
+    \item
+    Prove
+    \[ \int_0^1 \frac{dx}{\sqrt[3]{1-x^3}} = \frac{2\pi}{3 \sqrt{3}}.\]
+
+    \item
+    Prove Picard's theorem for meromorphic functions: if a meromorphic function defined on the entire complex plane omits three values, it is necessarily constant.
+
+    \begin{solution}
+        If \(f\) is meromorphic and omits \(a\), \(b\), and \(c\) then \(\frac{1}{f(z)-a}\) is a holomorphic function which omits \(\frac{1}{b-a}\) and \(\frac{1}{c-a}\). Thus by Picard's Little theorem \(f\) is constant.
+    \end{solution}
+
+    \item
+    Show that a non-constant holomorphic function defined on \(\C\setminus\{0\}\) omits at most \(1\) value.
+    \begin{solution}
+        If \(f\) has an essential singularity at \(0\) or \(\infty\) then an application of Picard's Great theorem completes the proof. If not then \(f\) is a meromorphic function on the Riemann sphere and is thus rational (see Section~\ref{otherprob}). Then the fundamental theorem of algebra completes the proof. 
+    \end{solution}
+
+    \item
+    Show that the function \(f(z) = ze^z\) attains every value from \(\C\).
+    \begin{solution}
+        Note first that \(f\) has an essential singularity at \(\infty\). That is, \(f(1/z) = \frac{e^1/z}{z}\) has an essential singularity at \(0\). Thus by Picard's theorem on the neighbourhood of infinity \(|z| > 1\), \(f\) omits at most one value. This value must be \(0\) and since \(f\) acheives \(0\) at \(z=0\), \(f\) attains every value.
+    \end{solution}
+
+
+    \item
+    Suppose \(f\), \(g\) are meromorphic functions such that \(f^3 + g^3 = 1\). Show that actually \(f\) and \(g\) are constant functions. Is result still true if 3 is replaced by a larger positive integer?
+    \begin{solution}
+        Note that the function \(\frac{f^3}{g^3} + 1 =  \frac{1}{g^3}\) is nonvanishing. Thus \(\frac{f}{g}\) omits the \(3\) distinct roots of \(-1\). Thus by Picard's theorem for meromorphic functions \(\frac{f}{g} = c\). But then \((c^3 +1)g^3 = 1\) so \(g\) and therefore \(f\) is constant. 
+    \end{solution}
+
+    \item
+    Suppose \(f\), \(g\) are entire functions satisfying \(e^f + e^g = 1\). Show that \(f\), \(g\) are actually constant functions. 
+    \begin{solution}
+        If \(e^f + e^g = 1\) then the entire function \(e^f = 1 - e^g\) omits \(0\) and \(1\), therefore by Picard's Little theorem it must be constant. Then by differentiating we find that \(f'\) must be zero so \(f\) is constant.
+    \end{solution}
+\end{enumerate}
+
+\section{Other Problems}\label{otherprob}
+\begin{enumerate}
+    \item
+    If \(f\) is an entire function without an  essential singularity at \(\infty\) then \(f\) is a polynomial.
+    \begin{solution}
+        Since \(f\) either has a pole or a removeable singularity at \(\infty\), \(\lim_{z \to \infty} \frac{f(z)}{z^k} = 0\) for some integer \(k\). But then by Cauchy's estimate 
+        \[
+            |f^{(n)}(0)| \leq \frac{n!Cr^k }{r^n}
+        \]
+        for large enough radius \(r\). But then if \(n > k\), \(f^{(n)} (0) = 0\) so \(f\) is a polynomial.
+    \end{solution}
+
+    \item
+    If \(f\) is a meromorphic function with a nonessential singularity at \(\infty\) then \(f\) is a rational function.
+    \begin{solution}
+        Since \(f\) has a nonessential singularity at \(\infty\), this singularity must be isolated so there is a neighbourhood of \(\infty\) which has no poles. This imples that \(f\) only has finitely many poles say \(z_1, \dots, z_n\) counted with multiplicity. Then \((z-z_1) \cdots (z-z_n) f(z)\) is a holomorphic function with no essential singularity at \(\infty\) so applying the previous problem completes the proof.
+    \end{solution}
+
+\end{enumerate}
+
+\end{document}
+
+

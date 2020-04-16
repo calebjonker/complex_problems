@@ -1,0 +1,34 @@
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[auto, decoration={markings, mark=between positions 0 and 1 step 0.04 with { \draw[help lines, -right to] (-0.1,-0.1) -- (0.1,-0.1); }}
+%mark=at position 0.04 with {\arrow[line width=1pt]{right to}},
+%mark=at position 0.09 with {\arrow[line width=0.8pt]{>}},
+%mark=at position 0.16 with {\arrow[line width=1pt]{right to}},
+%mark=at position 0.2 with {\arrow[line width=1pt]{right to}}
+, scale= 2]
+% The axes
+%\draw[help lines,<->] (-1.5,0) -- (1.5,0) coordinate (xaxis);
+%\draw[help lines,<->] (0,-1.5) -- (0,1.5) coordinate (yaxis);
+
+\def\ang{360/5}
+\def\r{0.1}
+
+% The path
+\path[draw, postaction={decorate}, line width=0.8pt] 
+(0,0) -- (1-\r,0) node[midway, below] {\(\gamma_1\)}
+arc (-180:180:\r) node[midway, above right] {\(\gamma_2\)} -- (0,0) node[midway, above] {\(\gamma_3\)} -- ({(1-\r)*cos(\ang)},{(1-\r)*sin(\ang)}) node[midway, right] {\(\gamma_4\)} 
+arc (\ang - 180:\ang + 180:\r) node[midway, above] {\(\gamma_5\)} --
+(0,0) node[midway, above left] {\(\gamma_6\)} -- ({(1-\r)*cos(2*\ang)},{(1-\r)*sin(2*\ang)}) node[midway, above] {\(\gamma_7\)}
+arc (2*\ang - 180:2*\ang + 180:\r) node[midway, left] {\(\gamma_8\)} -- 
+(0,0) node[midway, below left] {\(\gamma_9\)} -- ({(1-\r)*cos(3*\ang)},{(1-\r)*sin(3*\ang)}) node[midway, above left] {\(\gamma_{10}\)}
+arc (3*\ang - 180:3*\ang + 180:\r) node[midway, below left] {\(\gamma_{11}\)} -- (0,0) node[midway, below] {\(\gamma_{12}\)}  -- ({(1-\r)*cos(4*\ang)},{(1-\r)*sin(4*\ang)}) node[midway,below left] {\(\gamma_{13}\)}
+arc (4*\ang - 180:4*\ang + 180:\r) node[midway, below] {\(\gamma_{14}\)} -- 
+(0,0) node[midway, right] {\(\gamma_{15}\)};
+
+% The labels
+%\node[below] at (xaxis) {$x$};
+%\node[left] at (yaxis) {$y$};
+%\node[below left] {$O$};
+%\node at (0.5,1.2) {$C_{\varepsilon}$};
+%\node at (1.5,1.8) {$C_{r}$};
+\end{tikzpicture}
+
